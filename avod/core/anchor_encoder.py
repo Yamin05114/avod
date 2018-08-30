@@ -3,7 +3,8 @@ import tensorflow as tf
 
 import avod.core.format_checker as fc
 
-
+# 有了anchor就可以开始encode，这一步在anchor_generator之后.
+# 这个函数就是给定一个目标ground truth box 看看各个anchorbox的offset
 def anchor_to_offset(anchors, ground_truth):
     """Encodes the anchor regression predictions with the
     ground truth.
@@ -24,13 +25,16 @@ def anchor_to_offset(anchors, ground_truth):
 
     anchors = np.asarray(anchors).reshape(-1, 6)
     ground_truth = np.reshape(ground_truth, (6,))
-
+    
+    # 这里的归一化不是根据grid size来做的，反而是根据anchor size来做的好特别。。。
     # t_x_gt = (x_gt - x_anch)/dim_x_anch
     t_x_gt = (ground_truth[0] - anchors[:, 0]) / anchors[:, 3]
     # t_y_gt = (y_gt - y_anch)/dim_y_anch
     t_y_gt = (ground_truth[1] - anchors[:, 1]) / anchors[:, 4]
     # t_z_gt = (z_gt - z_anch)/dim_z_anch
     t_z_gt = (ground_truth[2] - anchors[:, 2]) / anchors[:, 5]
+    
+    # 长宽高可以是负无限。。。这个encoding很有问题呀
     # t_dx_gt = log(dim_x_gt/dim_x_anch)
     t_dx_gt = np.log(ground_truth[3] / anchors[:, 3])
     # t_dy_gt = log(dim_y_gt/dim_y_anch)
@@ -46,6 +50,7 @@ def anchor_to_offset(anchors, ground_truth):
     return anchor_offsets
 
 
+# tensorflow版本，和上面的基本上一样的
 def tf_anchor_to_offset(anchors, ground_truth):
     """Encodes the anchor regression predictions with the
     ground truth.
@@ -95,7 +100,7 @@ def tf_anchor_to_offset(anchors, ground_truth):
 
         return anchor_offsets
 
-
+# decode, 从t（这里管它叫offsets）借助anchors变成真实的box
 def offset_to_anchor(anchors, offsets):
     """Decodes the anchor regression predictions with the
     anchor.
