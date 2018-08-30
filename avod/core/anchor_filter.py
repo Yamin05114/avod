@@ -5,7 +5,7 @@ from wavedata.tools.core.integral_image_2d import IntegralImage2D
 
 from avod.core import format_checker
 
-
+#pre processing, 把anchor里面的不是锥视野的去掉？暂时这么理解等会回来看
 def get_empty_anchor_filter(anchors, voxel_grid_3d, density_threshold=1):
     """ Returns a filter for empty boxes from the given 3D anchor list
 
