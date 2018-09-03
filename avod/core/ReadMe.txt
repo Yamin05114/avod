@@ -31,4 +31,7 @@
    个纯虚类应该放在core种作为interface的形式存在，和bev_generators文件夹则应该最好是单独和core文件夹并列为
    一个实现的folder。
 
-8. 
+8. models/research/object_detection/core/box_predictor.py这个文件在avod中并没有出现。这个部分是rpn和
+   box_predictor需要分开，也就是faster rcnn的情况这一点在yolo中并不重要所以舍弃。
+
+9. 
