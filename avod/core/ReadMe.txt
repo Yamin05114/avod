@@ -1,4 +1,5 @@
-anchor_generator 是一个纯虚类，只是一个interface
+一个好的object detection肯定要借助于avod和object detection api两个project，因为实现写的非常不错。
 
-box_list 看完了 跟tensorflow research基本上没有区别
-box_list_ops 看完了 跟tensorflow research基本上没有区别
+1. anchor_generator 是一个纯虚类，只是一个interface，anchor_generators 文件夹里面是一个3D grid的生成，而我们需要的yolo其实是一个2D的这个方面其实要比AVOD简单，更接近于tensorflow research
+2. box_list 看完了 跟tensorflow research基本上没有区别
+3. box_list_ops 看完了 跟tensorflow research基本上没有区别
