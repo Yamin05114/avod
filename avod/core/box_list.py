@@ -37,6 +37,9 @@ Some other notes:
 import tensorflow as tf
 
 
+# 跟tensorflow research基本一致，就是一个
+# 默认的box是左上角右下角表示法，这种表示法并没有让我感觉有什么明显的优势
+# 还是中心长宽法实用意义更大一些，无论是计算iou还是由grid anchors去推算实际的box
 class BoxList(object):
     """Box collection."""
 
