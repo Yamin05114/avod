@@ -1,2 +1,4 @@
+anchor_generator 是一个纯虚类，只是一个interface
+
 box_list 看完了 跟tensorflow research基本上没有区别
 box_list_ops 看完了 跟tensorflow research基本上没有区别
