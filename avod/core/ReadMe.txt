@@ -11,4 +11,7 @@
 
 3. box_list_ops 看完了 跟tensorflow research基本上没有区别
 
-4. 
+4. losses.py，两者都是分别实现了定位误差和分类误差，complexyolo的话可以和avod相同的保留需要的部分同时加入
+   confidence objectiveness的误差，也就是一个MSE。
+
+5. 
