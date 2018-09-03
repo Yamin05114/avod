@@ -7,7 +7,9 @@
    我们还是使用tensorflow，matlab，opencv共有的坐标方式（batch，row，col，channel）这种“行列索引法”，
    本身要和“长宽索引”法在xy的坐标上有一个互换！具体实现请查看tensorflow object detection api。
 
-2. box_list 看完了 跟tensorflow research基本上没有区别
+2. box_list 看完了 跟tensorflow research基本上没有区别。需要注意的是，左上角右上角的box表示法可以轻松的
+   计算iou，中心长宽的表示法可以轻松的decode，两者各有所用。这是为什么需要box_list类的实现长成现在这个样子
+   的根本原因
 
 3. box_list_ops 看完了 跟tensorflow research基本上没有区别
 
