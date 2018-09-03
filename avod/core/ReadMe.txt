@@ -34,4 +34,12 @@
 8. models/research/object_detection/core/box_predictor.py这个文件在avod中并没有出现。这个部分是rpn和
    box_predictor需要分开，也就是faster rcnn的情况这一点在yolo中并不重要所以舍弃。
 
-9. 
+9. models/research/object_detection/core/data_decoder.py，models/research/object_detection/data_decoders/tf_example_decoder.py
+   主要用来解码之前生成的tf_record,yolo complex图片看上去暂时也是可以生成tf_record因为是三个通道，但是将来
+   能不能需要看一下tf_record的生成方式再来具体决定。其实主要要看的就是多通道怎么来解决。
+
+10.models/research/object_detection/core/freezable_batch_norm.py这里api里面说object detection有
+   时候需要freeze。。有点懵逼，需要进一步去看到底是什么意思。
+
+11.
+   
