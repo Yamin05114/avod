@@ -25,6 +25,11 @@ BoxList are retained unless documented otherwise.
 """
 import tensorflow as tf
 
+#tensorflow原装的box_list，
+#这里对于complexyolo来说应该也是可以使用的
+#IOU并不是旋转之后的box的IOU
+#而是ground truth和prediction产生的box都不旋转的IOU
+
 from avod.core import box_list
 
 
