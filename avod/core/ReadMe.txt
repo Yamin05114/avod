@@ -10,7 +10,9 @@
 
 2. box_coder这个部分也就是encode和decode，最好还是借鉴tensorflow object detection api，因为我们complex
    yolo主要是2Dbox的coder。在decode的时候才用相对坐标还是绝对坐标这一点，我更倾向于使用绝对坐标，因为相对
-   坐标，这时候就要注意原始anchor box的相对坐标要先计算好！实际的实现放在box_coders下面。
+   坐标，这时候就要注意原始anchor box的相对坐标要先计算好！实际的实现放在box_coders下面。encode是一个挑战，
+   因为encode方式yolo和这些都不太一样。暂时知道encode ground truth输入的方式，需要进一步阅读tensorflow
+   api
 
 3. box_list 看完了 跟tensorflow research基本上没有区别。需要注意的是，左上角右上角的box表示法可以轻松的
    计算iou，中心长宽的表示法可以轻松的decode，两者各有所用。这是为什么需要box_list类的实现长成现在这个样子
