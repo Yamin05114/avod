@@ -35,7 +35,8 @@ import tensorflow as tf
 
 from avod.core import ops
 
-
+#这个文件avod和object detection一模一样
+#用来构建batches是一个纯虚类，需要后面进一步处理。
 class MinibatchSampler(object):
     """Abstract base class for subsampling minibatches."""
     __metaclass__ = ABCMeta
