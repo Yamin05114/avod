@@ -68,6 +68,7 @@ pip3 install tensorflow-gpu==1.3.0
 3. Add `avod (top level)` and `wavedata` to your PYTHONPATH
 ```bash
 # For virtualenvwrapper users
+conda develop <directory>
 add2virtualenv .
 add2virtualenv wavedata
 ```
